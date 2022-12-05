@@ -1,10 +1,12 @@
 <x-layout title="Dashboard">
+    <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
 
     @section('subjudul')
     <div class="pagetitle">
         <h1>Form Deskripsi Pengerjaan</h1>
         <nav>
             <ol class="breadcrumb">
+                <li class="breadcrumb-item ">Home </li>
                 <li class="breadcrumb-item"><a href="index.html">Pekerjaan</a></li>
                 <li class="breadcrumb-item active">Form </li>
             </ol>
@@ -86,7 +88,9 @@
                                 </div>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="tombol">
+                        <button type="submit" class="btn btn-primary hover">Submit</button>
+                    </div>
                     </form>
                 </div>
             </div>

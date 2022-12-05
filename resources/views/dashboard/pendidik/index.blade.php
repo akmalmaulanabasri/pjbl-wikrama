@@ -3,6 +3,23 @@ use App\Http\Controllers\PendidikController;
 ?>
 
 <x-layout title="Hasil">
+    <link rel="stylesheet" href="asset('assets/css/table.css')">
+
+    @section('subjudul')
+    <div class="pagetitle">
+        <h1>Rekap Pembiasaan</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item ">Pembiasaan</li>
+
+                <li class="breadcrumb-item active">Rekap</li>
+                
+            </ol>
+        </nav>
+    </div>
+    @endsection
+
     <div class="card">
         <div class="card-title d-flex align-items-center px-3">
             <div class="col-6">
@@ -24,7 +41,10 @@ use App\Http\Controllers\PendidikController;
                     <option value="11">November</option>
                     <option value="12">Desember</option>
                 </select>
-                <button type="submit" class="btn btn-primary ms-2">Search</button>
+                
+                    <button type="submit" class="btn btn-primary ms-2" style="background-color: #415798 !important">Search</button>
+               
+                
                 <button href="{{ route('dashboard.pendidik.index') }}" class="btn btn-warning ms-2">Reset</button>
             </form>
         </div>

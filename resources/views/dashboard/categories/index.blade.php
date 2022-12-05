@@ -1,11 +1,11 @@
-<link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
 <x-layout title="Paket Soal">
+    <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}"> 
     @section('subjudul')
         <div class="pagetitle">
             <h1>Kategori Pembiasaan</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
                     <li class="breadcrumb-item active">Kategori </li>
                 </ol>
             </nav>
@@ -14,10 +14,15 @@
 
     <div class="tombol">
         <div></div>
-        <a href="{{ route('dashboard.categories.create') }}"><button class="btn btn-success">+ Paket Soal </button></a>
+        <a href="{{ route('dashboard.categories.create') }}"><button class="btn btn-success hover">+ Paket Soal </button></a>
    
     </div>
 
+    @if (session()->has('success'))
+    <div class="alert alert-success mt-3" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
     <div class="card">
         <div class="card-header" style="color: black">
             Tabel Paket Soal
@@ -29,7 +34,7 @@
                         <div class="row justify-content-center">
                             <div class="col-12">
                                 <div class=" table table-responsive-xl bg-white">
-                                    <table class="table mb-0 table-custom">
+                                    <table class="table mb-0 table-bordered">
                                         <thead>
                                             <tr>
                                                 <th class="th">No</th>

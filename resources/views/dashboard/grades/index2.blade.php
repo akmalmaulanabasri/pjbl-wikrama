@@ -1,14 +1,15 @@
 
 
-<link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
 
 <x-layout title="Dashboard">
+  <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
   @section('subjudul')
   <div class="pagetitle">
       <h1>Manage Rombel</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Manage</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+          <li class="breadcrumb-item">Master</li>
           <li class="breadcrumb-item active">Rombel</li>
         </ol>
       </nav>
@@ -22,7 +23,7 @@
   @endif
   <div class="tombol">
     <div></div>
- <a href="{{ url('dashboard/grades/create') }}"> <button class="btn btn-success" style="    margin-right: 13px;">+ Rombel </button></a>
+ <a href="{{ url('dashboard/grades/create') }}"> <button class="btn btn-success hover" style="margin-right: 13px; border: none;" >+ Rombel </button></a>
   </div>
 <div class="card pt-3">
   <section class="intro">
@@ -33,7 +34,7 @@
           <div class="row justify-content-center">
             <div class="col-12">
               <div class=" table table-responsive-xl bg-white">
-                <table class="table mb-0 table-custom">
+                <table class="table mb-0 table-bordered">
                   <thead>
                     <tr>
                       <th class="th">No</th>

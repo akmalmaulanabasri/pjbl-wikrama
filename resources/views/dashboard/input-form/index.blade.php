@@ -1,28 +1,41 @@
-<x-layout title="Soal">
+<x-layout title="input form">
     <link rel="stylesheet" href="{{ asset('assets/css/table.css') }}">
+    @section('subjudul')
+    <div class="pagetitle">
+        <h1>Siswa</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+                <li class="breadcrumb-item active">Daftar Siswa</li>
+            </ol>
+        </nav>
+    </div>
+@endsection
+
     <div class="card">
         <div class="card-title px-3">
             <h5>Daftar Siswa</h5>
         </div>
+
         <div class="card-body">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between form-group">
                 <select class="form-select w-auto"
-                    onchange="window.location.href = `?grade=${this.value}&region={{ request()->get('region') }}`">
-                    <option selected disabled>Pilih Rombel</option>
-                    <option value="">All</option>
-                    @forelse ($grades as $grade)
-                        <option {{ $grade->id == request()->get('grade') ? 'selected disabled' : '' }}
-                            value="{{ $grade->id }}">{{ $grade->name }}</option>
-                    @empty
-                        <option value="" disabled>Empty</option>
-                    @endforelse
-                </select>
-                
+                onchange="window.location.href = `?grade=${this.value}&region={{ request()->get('region') }}`">
+                <option selected disabled>Pilih Rombel</option>
+                <option value="">All</option>
+                @forelse ($grades as $grade)
+                    <option {{ $grade->id == request()->get('grade') ? 'selected disabled' : '' }}
+                        value="{{ $grade->id }}">{{ $grade->name }}</option>
+                @empty
+                    <option value="" disabled>Empty</option>
+                @endforelse
+             </select>
                 <a href="{{ route('dashboard.input-form.create') }}" onclick="event.preventDefault()"
-                    data-bs-toggle="modal" data-bs-target="#modalCreate" class="btn btn-primary"><i
-                        class="bi bi-plus"></i>
-                    Tambah Siswa
-                </a>
+                data-bs-toggle="modal" data-bs-target="#modalCreate" class="btn btn-primary"><i
+                    class="bi bi-plus"></i>
+                Tambah Siswa
+            </a>
+
             </div>
             @if (session()->has('success'))
                 <div class="alert alert-success mt-3" role="alert">
@@ -64,12 +77,12 @@
                                 <td>
                                    {{ $student->user->username }}
                                 </td>
-                                <td class="column__max">
-                                    <a href="{{ route('dashboard.input-form.edit', $student->id) }}" class="text-blue">
+                                <td class="column__max text-center">
+                                     <a href="{{ route('dashboard.input-form.edit', $student->id) }}" class="text-blue">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                 </td>
-                                <td class="column__max">
+                                <td class="column__max text-center">
                                     <form action="{{ route('dashboard.input-form.destroy', $student->id) }}"
                                         method="POST">
                                         @csrf
@@ -208,4 +221,11 @@
             </div>
         </div>
     </div>
+
+    
+    {{-- <script>
+        $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    }); 
+    </script> --}}
 </x-layout>

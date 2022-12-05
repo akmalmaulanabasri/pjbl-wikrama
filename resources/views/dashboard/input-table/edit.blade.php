@@ -1,7 +1,7 @@
 <x-layout title="Edit Siswa {{ $input_table->name }}">
     <link rel="stylesheet" href="{{asset('assets/css/table.css')}}">
     <div class="card">
-        <div class="card-title">
+        <div class="card-title ps-4">
             <h5>Form Edit Siswa {{ $input_table->name }}</h5>
         </div>
         <div class="card-body">
@@ -103,7 +103,12 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary tombol">Submit</button>
+                <div class="d-flex">
+                    <button type="submit" class="btn btn-primary tombol">Submit</button>
+                    <div class="ms-2" style="margin-top: 20px">
+                        <a href="{{ route('dashboard.input-table.index') }}" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

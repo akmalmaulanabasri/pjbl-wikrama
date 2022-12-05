@@ -24,9 +24,9 @@
                     @method('PUT')
 
                     <div class="col-12">
-                        <label for="rombel" class="form-label">Rombel</label>
+                        <label for="rombel_edit" class="form-label">Rombel</label>
 
-                        <input type="text" class="form-control  @error('name') is-invalid @enderror " id="rombel" value="{{ old('name', $grade->name) }}" name="name" id="name" placeholder="RPL XII-2">
+                        <input type="text" class="form-control  @error('name') is-invalid @enderror " id="rombel_edit" value="{{ old('name', $grade->name) }}" name="name" id="name" placeholder="RPL XII-2">
 
                         @error('name')
                         <div class="invalid-feedback">
